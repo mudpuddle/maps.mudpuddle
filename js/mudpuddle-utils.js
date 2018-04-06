@@ -1,19 +1,19 @@
-var open = 0;
+var panelOpen = 0;
 function panelToggle() {
-  if (open == 0) {
+  if (panelOpen == 0) {
     $("#block" ).animate({ "right": "+=252px" }, "slow" );
     setTimeout(function(){
       $("#menuToggle").removeClass("glyphicon-chevron-left").addClass("glyphicon-chevron-right");
       $('#location').focus();
     },500);
-    open = 1;
+    panelOpen = 1;
   }
-  else if (open == 1) {
+  else if (panelOpen == 1) {
     $("#block" ).animate({ "right": "-=252px" }, "slow" );
     setTimeout(function(){
       $("#menuToggle").removeClass("glyphicon-chevron-right").addClass("glyphicon-chevron-left");
     },500);
-    open = 0;
+    panelOpen = 0;
   }
 }
 
@@ -53,8 +53,6 @@ $(document).ready(function () {
     $('#zoomReset').click(function() { resetMap(); });
 
     $('#printButton').click(printMap);
-    //$('#printButton').click(function() { window.open('http://www.google.com'); });
-    //document.getElementById('printButton').onclick=printMap;
 
     $('#location').bind('keyup', function(e) {
       if ( e.keyCode === 13 ) {
@@ -62,5 +60,6 @@ $(document).ready(function () {
       }
     });
 
+    panelToggle();
   // $('#location').append(geocoder.onAdd(map));
 });
