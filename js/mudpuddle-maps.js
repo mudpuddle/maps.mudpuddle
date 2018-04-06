@@ -12,7 +12,7 @@ function initialize() {
   mapboxgl.accessToken = 'pk.eyJ1IjoibXVkcHVkZGxlIiwiYSI6IjJjeEdfRDgifQ.FuEb3wc45Kl4LfEe3Qe_uQ';
   map = new mapboxgl.Map({
     container: 'map-canvas', // container id
-    style: 'mapbox://styles/mapbox/outdoors-v9', // stylesheet location
+    style: 'mapbox://styles/mapbox/outdoors-v10', // stylesheet location
     center: myLatLng, // starting position [lng, lat]
     zoom: zoom // starting zoom
   });
@@ -61,6 +61,9 @@ function positionError(err) {
             msg = "Location detection not supported in browser";
     }
     document.getElementById('info').innerHTML = msg;
+    setTimeout(function () {
+        $('#info').stop().fadeTo("slow", 0.001);
+    }, 5000);
 }
 
 function positionSuccess(position) {
@@ -71,6 +74,9 @@ function positionSuccess(position) {
     zoom = 12;
     map.setZoom(zoom);
     document.getElementById('info').innerHTML = 'Location successfully detected';
+    setTimeout(function () {
+        $('#info').stop().fadeTo("slow", 0.001);
+    }, 5000);
 }
 
 function codeLocation(addHistory) {
@@ -99,7 +105,11 @@ function resetMap() {
 }
 
 function printMap() {
-    return newWindow = window.open("https://www.google.com", "_blank", "toolbar=yes,top=500,left=500,width=400,height=400");
-    // window.open("https://api.mapbox.com/styles/v1/mapbox/outdoors-v10/static/-67.90470,-0.00257,10.7,0,0/600x600?access_token=pk.eyJ1IjoibXVkcHVkZGxlIiwiYSI6IjJjeEdfRDgifQ.FuEb3wc45Kl4LfEe3Qe_uQ");
-    return false;
+    var currentLoc = map.getCenter();
+    var currentZoom = map.getZoom();
+    return newWindow = window.open(
+      "https://api.mapbox.com/styles/v1/mapbox/outdoors-v10/static/" + currentLoc.lng + "," + currentLoc.lat + "," + currentZoom + ",0,0/600x600?access_token=pk.eyJ1IjoibXVkcHVkZGxlIiwiYSI6IjJjeEdfRDgifQ.FuEb3wc45Kl4LfEe3Qe_uQ",
+      "_blank",
+      "toolbar=yes,width=750,height=750"
+    );
 }

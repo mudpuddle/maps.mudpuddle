@@ -41,9 +41,7 @@ $(".trigger" ).click(function() {
 });
 
 $(document).ready(function () {
-    setTimeout(function () {
-        $('#info').stop().fadeTo("slow", 0.001);
-    }, 10000);
+
     setTimeout(function() {
       window.scrollTo(0, 1)
     }, 100);
