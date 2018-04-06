@@ -1,0 +1,100 @@
+html, body, #map-canvas
+{
+    width:100%;
+    height:100%;
+    min-height:100%;
+}
+div#info {
+    width:100%;
+    position:absolute;
+    overflow:hidden;
+    text-align:center;
+    top:0;
+    left:0;
+}
+.lightBox {
+    filter:alpha(opacity=60);
+    -moz-opacity:0.6;
+    -khtml-opacity: 0.6;
+    opacity: 0.6;
+    background-color:white;
+    padding:2px;
+}
+
+/*
+ * Bootstrap Overrides
+ */
+
+.container {
+    height: 100%;
+}
+
+.container-fluid {
+    height: 100%;
+}
+
+.tab-content {
+    max-height: 90%;
+    height: 90%;
+    overflow-y: auto;
+    /* Firefox */
+    max-height: -moz-calc(90% - 45px);
+    /* WebKit */
+    max-height: -webkit-calc(90% - 45px);
+}
+
+/* slide panel CSS
+-------------------------------------------------- */
+#block {
+  position: absolute;
+  right: -252px;
+  width: 300px;
+  height: 92%;
+  top: 35px;
+  background-color:gray;
+  opacity:0.9;
+  filter:alpha(opacity=60); /* For IE8 and earlier */
+  border-radius: 4px 0 0 4px;
+}
+.slide-content {
+    margin-left: 40px;
+    margin-top:15px;
+    width: 75%;
+}
+.side-nav-container {
+  height: 42px;
+  border-bottom: 1px white solid;
+}
+.side-nav {
+  background-color: gray;
+  height: 42px;
+  border-bottom: 1px solid white;
+  border-radius: 4px 0 0 0;
+}
+.nav-tabs>li.active>a, .nav-tabs>li.active>a:hover, .nav-tabs>li.active>a:focus {
+  color: #FFF;
+  cursor: default;
+  background-color: #008000;
+  border: 0;
+}
+.nav-tabs>li>a {
+  color: #ccc;
+  margin-right: 2px;
+  line-height: 1.428571429;
+  border: 0;
+
+}
+.nav-tabs>li>a:hover {
+  border: 0;
+}
+.nav>li>a:hover, .nav>li>a:focus {
+  text-decoration: none;
+  background-color: #999;
+}
+#ad-content {
+    position: absolute;
+    width: 100%;
+    height: 45px;
+    bottom: 25px;
+    border-top: 1px white solid;
+}

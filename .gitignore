@@ -1,0 +1,14 @@
+.DS_Store
+log
+.powenv
+*.komodoproject
+.komodotools
+bin
+bin/*.*
+lib
+lib/*.*
+include
+include/*.*
+*.pyc
+.Python
+Thumbs.db

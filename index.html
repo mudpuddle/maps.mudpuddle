@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>MudPuddle Maps</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+
+    <!-- Loading Bootstrap -->
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Loading Custom CSS -->
+    <link href="css/mudpuddle-maps.css" rel="stylesheet">
+
+    <!-- Loading Mapbox CSS -->
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.44.1/mapbox-gl.css' rel='stylesheet' />
+    <link href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v2.2.0/mapbox-gl-geocoder.css' rel='stylesheet' />
+
+    <!--<link rel="shortcut icon" href="images/favicon.ico">-->
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements. All other JS at the end of file. -->
+    <!--[if lt IE 9]>
+      <script src="js/html5shiv.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="container-fluid">
+      <div id="map-canvas"></div>
+      <div id="info" class="lightBox">Detecting your location...</div>
+      <div id="block">
+        <div class="side-nav-container">
+          <ul class="side-nav nav nav-tabs pull-left">
+            <li class="trigger"><a href="#" title="Menu" data-placement="left"><span id="menuToggle" class="glyphicon glyphicon-chevron-left"></span></a></li>
+            <li class="active"><a title="Search" data-placement="bottom" href="#search" data-toggle="tab"><span class="glyphicon glyphicon-search"></span></a></li>
+            <!-- <li><a title="Details" data-placement="bottom" href="#details" data-toggle="tab"><span class="glyphicon glyphicon-picture"></span></a></li> -->
+            <li><a title="About" data-placement="bottom" href="#about" data-toggle="tab"><span class="glyphicon glyphicon-info-sign"></span></a></li>
+            <li id="zoomReset"><a title="Zoom to starting extent" data-placement="bottom" href="#"><span class="glyphicon glyphicon-fullscreen"></span></a></li>
+            <li id="printButton"><a title="Print current trail data" data-placement="bottom" href="#"><span class="glyphicon glyphicon-print"></span></a></li>
+          </ul>
+        </div>
+        <div id="tab-content" class="tab-content">
+          <div class="tab-pane active" id="search">
+              <div class="slide-content">
+                <div class="input-group">
+                  <input id="location" type="text" placeholder="Where to?" class="form-control">
+                  <span class="input-group-btn">
+                    <button class="btn btn-default" type="button" onclick="codeLocation(true)">Go!</button>
+                  </span>
+                </div><!-- /input-group -->
+              </div><!-- /.slide-content -->
+              <div id="listLocation" class="slide-content">
+                <!-- a place holder for searched locations -->
+              </div>
+          </div>
+          <div class="tab-pane" id="details">
+
+          </div>
+          <div class="tab-pane" id="about">
+            <div class="slide-content">
+              <div class="well">
+                <p>This webapp will help you explore the wild areas around you.</p>
+                <p>
+                  It uses <a href='https://www.mapbox.com/'>Mapbox</a> because of the great terrain maps and lots of trail detail.
+                  When you zoom in close enough you will be able to see the trail detail.
+                </p>
+                <p>Feel free to look around and explore whats around you.</p>
+                <p>As you explore, a list of quick links to the places you have been will be stored so you can jump around from place to place.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="ad-content">
+          <!-- Ad Placeholder -->
+        </div>
+      </div>
+    </div>
+    <!-- /.container -->
+
+    <!-- Sample static map api url for future printing -->
+    <!-- http://maps.googleapis.com/maps/api/staticmap?center=44.564565,-123.262043&zoom=13&size=640x640&maptype=terrain&scale=2&visual_refresh=true&format=jpg-baseline&sensor=false -->
+
+    <!-- Load JS here for greater good =============================-->
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+    <!-- Custom Scripts -->
+    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.44.1/mapbox-gl.js'></script>
+    <!-- <script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v2.2.0/mapbox-gl-geocoder.min.js'></script> -->
+    <script src="https://maps.googleapis.com/maps/api/js?v=3&sensor=true"></script>
+    <script src="js/mudpuddle-maps.js"></script>
+    <script src="js/mudpuddle-utils.js"></script>
+  </body>
+</html>
